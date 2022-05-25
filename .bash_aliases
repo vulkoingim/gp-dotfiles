@@ -12,26 +12,19 @@ alias gwcnt="git whatchanged -1 --format=oneline | wc -l"
 alias gwchg="git whatchanged"
 alias grep="grep --color"
 alias gtr="tig"
-alias shrug="echo '¯\_(ツ)_/¯' | pbcopy"
 alias gundo="git reset HEAD~"
 alias rslvtheirs="gco --theirs"
 alias rslvours="gco --ours"
 alias gmpull="gco main && git pull"
 alias gmt='function _gmt(){ git commit -m"$1";};_gmt'
-alias cat='bat -p'
 alias k="kubectl"
 alias kc="kubectx"
-alias greset="git fetch && git reset $(git merge-base origin/main $(git rev-parse --abbrev-ref HEAD))"
 alias ovim="/usr/bin/vim"
 alias j="z"
 
-greset(){
-	git reset $(git fetch && git merge-base origin/main $(git rev-parse --abbrev-ref HEAD))
-}
+function greset () { git fetch && git reset $(git merge-base origin/main $(git rev-parse --abbrev-ref HEAD)); }
 
-gresetmaster(){
-	git reset $(git fetch && git merge-base origin/master $(git rev-parse --abbrev-ref HEAD))
-}
+function gresetmaster () { git fetch && git reset $(git merge-base origin/master $(git rev-parse --abbrev-ref HEAD)); }
 
 mcommit=(
     "¯\\_(ツ)_/¯"
@@ -80,7 +73,6 @@ alias largestdir="du -a /var | sort -n -r | head -n 10"
 alias lsize="du -shc *"
 #   Set Paths
 #   ------------------------------------------------------------
-export AWS_PAGER="bat -l json --plain"
 # set path
 #   -----------------------------
 #   2.  MAKE TERMINAL BETTER
@@ -194,22 +186,8 @@ PROMPT_COMMAND='history -a; history -n;'
 
 alias swykey='gpg-connect-agent "scd serialno" "learn --force" /bye'
 
-fct(){
-	git commit -m"$1 $mcommit[$(( $RANDOM % $#mcommit+1 ))]"
-}
+function fct () { git commit -m"$1 $mcommit[$(( $RANDOM % $#mcommit+1 ))]"; }
 
-gf(){
-	git commit -m"$1 $mcommit[$(( $RANDOM % $#mcommit+1 ))]" && gush
-}
+function gf () {	git commit -m"$1 $mcommit[$(( $RANDOM % $#mcommit+1 ))]" && gush; }
 
-gp(){
-        gat && git commit -m"$1 $mcommit[$(( $RANDOM % $#mcommit+1 ))]" && gush
-}
-
-b64(){
-	echo -n "$1" | base64 | pbcopy
-}
-
-b64d(){
-	echo -n "$1" | base64 -d | pbcopy
-}
+function gp () { gat && git commit -m"$1 $mcommit[$(( $RANDOM % $#mcommit+1 ))]" && gush; }
