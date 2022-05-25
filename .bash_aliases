@@ -192,3 +192,5 @@ function fct () { git commit -m"$1 $mcommit[$(( $RANDOM % $#mcommit+1 ))]"; }
 function gf () {	git commit -m"$1 $mcommit[$(( $RANDOM % $#mcommit+1 ))]" && gush; }
 
 function gp () { gat && git commit -m"$1 $mcommit[$(( $RANDOM % $#mcommit+1 ))]" && gush; }
+
+source ~/z.sh
