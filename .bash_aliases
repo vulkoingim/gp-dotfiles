@@ -21,6 +21,7 @@ alias k="kubectl"
 alias kc="kubectx"
 alias ovim="/usr/bin/vim"
 alias j="z"
+alias cat="bat -p"
 alias ikctx="./dev/preview/install-k3s-kubeconfig.sh"
 
 function greset () { git fetch && git reset $(git merge-base origin/main $(git rev-parse --abbrev-ref HEAD)); }
@@ -81,6 +82,7 @@ alias lsize="du -shc *"
 
 # Remove duplicate items from history
 export HISTCONTROL=ignoreboth:erasedups
+export AWS_PAGER="bat -l json --plain"
 
 alias ll='ls -FGlAhp'                       # Preferred 'ls' implementation
 alias less='less -FSRXc'                    # Preferred 'less' implementation
