@@ -21,6 +21,7 @@ alias k="kubectl"
 alias kc="kubectx"
 alias ovim="/usr/bin/vim"
 alias j="z"
+alias ikctx="./dev/preview/install-k3s-kubeconfig.sh"
 
 function greset () { git fetch && git reset $(git merge-base origin/main $(git rev-parse --abbrev-ref HEAD)); }
 
