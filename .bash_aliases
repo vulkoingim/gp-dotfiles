@@ -19,6 +19,7 @@ alias gmpull="gco main && git pull"
 alias gmt='function _gmt(){ git commit -m"$1";};_gmt'
 alias k="kubectl"
 alias kc="kubectx"
+alias kn="kubens"
 alias ovim="/usr/bin/vim"
 alias j="z"
 alias cat="bat -p"
@@ -191,7 +192,7 @@ alias swykey='gpg-connect-agent "scd serialno" "learn --force" /bye'
 
 function fct () { git commit -m"$1 $mcommit[$(( $RANDOM % $#mcommit+1 ))]"; }
 
-function gf () {	git commit -m"$1 $mcommit[$(( $RANDOM % $#mcommit+1 ))]" && gush; }
+function gf () { git commit -m"$1 $mcommit[$(( $RANDOM % $#mcommit+1 ))]" && gush; }
 
 function gp () { gat && git commit -m"$1 $mcommit[$(( $RANDOM % $#mcommit+1 ))]" && gush; }
 
