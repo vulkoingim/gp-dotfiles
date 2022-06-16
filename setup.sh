@@ -9,6 +9,7 @@ BAT_RELEASE="bat-${BAT_VERSION}-x86_64-unknown-linux-musl"
 wget -qO- https://github.com/sharkdp/bat/releases/download/${BAT_VERSION}/${BAT_RELEASE}.tar.gz | tar -xzvf - ${BAT_RELEASE}/bat -C ~/bat
 sudo ln ~/${BAT_RELEASE}/bat /usr/local/bin/bat
 
+
 sudo apt-get update
 sudo apt-get install tig
 
