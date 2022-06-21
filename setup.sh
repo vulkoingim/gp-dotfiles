@@ -15,6 +15,8 @@ sudo apt-get install tig
 git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
 yes | ~/.fzf/install
 
+ln -s ~/.dotfiles/.vimrc ~/.vimrc
+
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 vim +PluginInstall +qall
 
