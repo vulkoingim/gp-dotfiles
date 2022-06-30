@@ -9,7 +9,7 @@ sudo ln ~/${BAT_RELEASE}/bat /usr/local/bin/bat
 sudo apt-get update
 sudo apt-get --yes install tig zplug fzf zsh-syntax-highlighting 
 
-yes | sh -c "$(wget -O- https://github.com/deluan/zsh-in-docker/releases/download/v1.1.2/zsh-in-docker.sh)" -- \
+sh -c "$(wget -O- https://github.com/deluan/zsh-in-docker/releases/download/v1.1.2/zsh-in-docker.sh)" -- \
    -t https://github.com/geometry-zsh/geometry \
    -p git \
    -p fzf \
