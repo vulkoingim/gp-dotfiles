@@ -2,7 +2,7 @@
 set -Eeuo pipefail
 
 sudo apt-get update
-sudo apt-get install tig zplug bat fzf zsh-syntax-highlighting
+sudo apt-get --yes install tig zplug bat fzf zsh-syntax-highlighting 
 
 yes | sh -c "$(wget -O- https://github.com/deluan/zsh-in-docker/releases/download/v1.1.2/zsh-in-docker.sh)" -- \
    -t https://github.com/geometry-zsh/geometry \
