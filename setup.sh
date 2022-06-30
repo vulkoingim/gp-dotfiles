@@ -1,8 +1,13 @@
 #!/usr/bin/env bash
 set -Eeuo pipefail
 
+BAT_VERSION="v0.21.0"
+BAT_RELEASE="bat-${BAT_VERSION}-x86_64-unknown-linux-musl"
+wget -qO- https://github.com/sharkdp/bat/releases/download/${BAT_VERSION}/${BAT_RELEASE}.tar.gz | tar -xzvf - ${BAT_RELEASE}/bat -C ~/bat
+sudo ln ~/${BAT_RELEASE}/bat /usr/local/bin/bat
+
 sudo apt-get update
-sudo apt-get --yes install tig zplug bat fzf zsh-syntax-highlighting 
+sudo apt-get --yes install tig zplug fzf zsh-syntax-highlighting 
 
 yes | sh -c "$(wget -O- https://github.com/deluan/zsh-in-docker/releases/download/v1.1.2/zsh-in-docker.sh)" -- \
    -t https://github.com/geometry-zsh/geometry \
