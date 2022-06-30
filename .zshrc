@@ -50,7 +50,7 @@ setopt share_history
 setopt appendhistory autocd extendedglob notify correctall nomatch globdots
 
 zplug "changyuheng/fz", defer:1
-zplug "geometry-zsh/geometry"
+#zplug "geometry-zsh/geometry"
 zplug "zsh-users/zsh-syntax-highlighting", defer:2
 
 # zplug check returns true if all packages are installed
@@ -81,5 +81,3 @@ eval "$(pyenv init -)"
 # ONLY EVAL BEYOND HERE
 eval "$(direnv hook zsh)"
 # The following lines were added by compinstall
-#
-eval "$(mcfly init zsh)"

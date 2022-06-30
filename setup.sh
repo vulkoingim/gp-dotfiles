@@ -19,12 +19,14 @@ yes | sh -c "$(wget -O- https://github.com/deluan/zsh-in-docker/releases/downloa
    -p zsh-history-substring-search \
    -p zsh-syntax-highlighting \
    -p https://github.com/zsh-users/zsh-autosuggestions \
+   -p https://github.com/zsh-users/zsh-syntax-highlighting \
+   -p https://github.com/zsh-users/zsh-history-substring-search \
    -p https://github.com/zsh-users/zsh-completions
 
 git clone https://github.com/VundleVim/Vundle.vim.git .vim/bundle/Vundle.vim
 
 ln -s ~/.dotfiles/.bash_aliases ~/.bash_aliases
-ln -s ~/.dotfiles/.zshrc ~/.zshrc
+# ln -s ~/.dotfiles/.zshrc ~/.zshrc
 ln -s ~/.dotfiles/.zshenv ~/.zshenv
 ln -s ~/.dotfiles/z.sh ~/z.sh
 ln -s ~/.dotfiles/.vimrc ~/.vimrc
@@ -34,4 +36,3 @@ vim +PluginInstall +qall
 
 git config --global color.ui auto
 git config --global color.status.changed yellow
-
