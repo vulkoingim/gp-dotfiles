@@ -34,6 +34,7 @@ call vundle#end()            " required
 filetype plugin indent on    " required
 
 colorscheme gruvbox
+set bg=dark
 
 if has("autocmd")
   au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif

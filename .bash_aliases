@@ -25,6 +25,8 @@ alias j="z"
 alias cat="bat -p"
 alias ikctx="./dev/preview/install-k3s-kubeconfig.sh"
 
+# export SHELL=/usr/bin/zsh
+
 function greset () { git fetch && git reset $(git merge-base origin/main $(git rev-parse --abbrev-ref HEAD)); }
 
 function gresetmaster () { git fetch && git reset $(git merge-base origin/master $(git rev-parse --abbrev-ref HEAD)); }
