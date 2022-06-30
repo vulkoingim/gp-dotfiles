@@ -36,3 +36,6 @@ vim +PluginInstall +qall
 
 git config --global color.ui auto
 git config --global color.status.changed yellow
+
+echo 'colorscheme gruvbox' >> ~/.vimrc
+echo 'set bg=dark' >> ~/.vimrc
