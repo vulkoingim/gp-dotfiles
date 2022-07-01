@@ -1,5 +1,5 @@
 # export ZSH_HIGHLIGHT_HIGHLIGHTERS_DIR=$(brew --prefix)/share/zsh-syntax-highlighting/highlighters
-GEOMETRY_STATUS_SYMBOL=🚀
+GEOMETRY_STATUS_SYMBOL=👾
 GEOMETRY_STATUS_SYMBOL_ERROR=💩
 GEOMETRY_INFO=""
 GEOMETRY_KUBE_VERSION="false"
