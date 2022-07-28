@@ -10,14 +10,14 @@ sudo apt-get update
 sudo apt-get --yes install tig zplug fzf zsh-syntax-highlighting 
 
 sh -c "$(wget -O- https://github.com/deluan/zsh-in-docker/releases/download/v1.1.2/zsh-in-docker.sh)" -- \
-   -t https://github.com/geometry-zsh/geometry \
+   -t https://github.com/vulkoingim/geometry \
    -p git \
    -p fzf \
    -p z \
    -p kubectl \
+   -p https://github.com/Aloxaf/fzf-tab \   
    -p zsh-history-substring-search \
    -p zsh-syntax-highlighting \
-   -p https://github.com/Aloxaf/fzf-tab \
    -p https://github.com/zsh-users/zsh-autosuggestions \
    -p https://github.com/zsh-users/zsh-syntax-highlighting \
    -p https://github.com/zsh-users/zsh-history-substring-search \
