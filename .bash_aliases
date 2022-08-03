@@ -25,6 +25,11 @@ alias j="z"
 alias cat="bat -p"
 alias ikctx="./dev/preview/install-k3s-kubeconfig.sh"
 
+ws-pods(){
+    join -1 1 -2 3 -o 1.1,2.2,2.4,1.3,1.5 <(kubectl get pods -l headless=false -l component=workspace | sed -e "s/^ws-//" | sort -k 1b | tail -n+2) <(gpctl workspaces list | sort -k 3b | tail -n+2) | sed -e 's/^/ws-/' | column -ts ' '
+}
+
+
 # export SHELL=/usr/bin/zsh
 
 function greset () { git fetch && git reset $(git merge-base origin/main $(git rev-parse --abbrev-ref HEAD)); }

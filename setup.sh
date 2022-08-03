@@ -25,12 +25,12 @@ sh -c "$(wget -O- https://github.com/deluan/zsh-in-docker/releases/download/v1.1
 
 git clone https://github.com/VundleVim/Vundle.vim.git .vim/bundle/Vundle.vim
 
-ln -sf ~/.dotfiles/.bash_aliases ~/.bash_aliases
+ln -s ~/.dotfiles/.bash_aliases ~/.bash_aliases
 # ln -s ~/.dotfiles/.zshrc ~/.zshrc
-ln -sf ~/.dotfiles/.zshenv ~/.zshenv
+ln -s ~/.dotfiles/.zshenv ~/.zshenv
 ln -s ~/.dotfiles/z.sh ~/z.sh
-ln -sf ~/.dotfiles/.vimrc ~/.vimrc
-ln -sf ~/.dotfiles/.vim/bundle/Vundle.vim ~/.vim/bundle/Vundle.vim
+ln -s ~/.dotfiles/.vimrc ~/.vimrc
+ln -s ~/.dotfiles/.vim/bundle/Vundle.vim ~/.vim/bundle/Vundle.vim
 
 vim +PluginInstall +qall
 
