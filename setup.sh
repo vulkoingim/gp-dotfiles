@@ -40,4 +40,4 @@ git config --global color.status.changed yellow
 echo 'colorscheme gruvbox' >> ~/.vimrc
 echo 'set bg=dark' >> ~/.vimrc
 echo 'source ~/.bash_aliases' >> ~/.zshrc
-echo '[ -z "$ZSH_VERSION" ] && export SHELL=`which zsh` && exec "$SHELL" -l' >> ~/.bashrc
+#echo '[ -z "$ZSH_VERSION" ] && export SHELL=`which zsh` && exec "$SHELL" -l' >> ~/.bashrc
