@@ -27,7 +27,7 @@ git clone https://github.com/VundleVim/Vundle.vim.git .vim/bundle/Vundle.vim
 
 ln -s ~/.dotfiles/.bash_aliases ~/.bash_aliases
 # ln -s ~/.dotfiles/.zshrc ~/.zshrc
-ln -s ~/.dotfiles/.zshenv ~/.zshenv
+cat ~/.dotfiles/.zshenv >> ~/.zshenv
 ln -s ~/.dotfiles/z.sh ~/z.sh
 ln -s ~/.dotfiles/.vimrc ~/.vimrc
 ln -s ~/.dotfiles/.vim/bundle/Vundle.vim ~/.vim/bundle/Vundle.vim
