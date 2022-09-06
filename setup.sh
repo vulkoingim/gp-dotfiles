@@ -7,7 +7,7 @@ wget -qO- https://github.com/sharkdp/bat/releases/download/${BAT_VERSION}/${BAT_
 sudo ln ~/${BAT_RELEASE}/bat /usr/local/bin/bat 2>/dev/null
 
 sudo apt-get update
-sudo apt-get --yes install tig zplug fzf zsh-syntax-highlighting lesspipe tldr
+sudo apt-get --yes install tig zplug fzf zsh-syntax-highlighting tldr
 
 sh -c "$(wget -O- https://github.com/deluan/zsh-in-docker/releases/download/v1.1.2/zsh-in-docker.sh)" -- \
    -t https://github.com/vulkoingim/geometry \
