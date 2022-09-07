@@ -6,9 +6,8 @@ BAT_RELEASE="bat-${BAT_VERSION}-x86_64-unknown-linux-musl"
 wget -qO- https://github.com/sharkdp/bat/releases/download/${BAT_VERSION}/${BAT_RELEASE}.tar.gz | tar -xzvf - ${BAT_RELEASE}/bat -C ~/bat
 sudo ln ~/${BAT_RELEASE}/bat /usr/local/bin/bat 2>/dev/null
 
-KUBECOLOR_VERSION="0.0.20"
-KUBECOLOR_RELEASE="kubecolor_${KUBECOLOR_VERSION}_Linux_x86_64.tar.gz"
-wget https://github.com/hidetatz/kubecolor/releases/download/v${KUBECOLOR_VERSION}/${KUBECOLOR_RELEASE} && tar -xvfz ${KUBECOLOR_RELEASE} kubecolor -C ~/kubecolor
+wget https://github.com/hidetatz/kubecolor/releases/download/v0.0.20/kubecolor_0.0.20_Linux_x86_64.tar.gz
+tar -xvf kubecolor_0.0.20_Linux_x86_64.tar.gz kubecolor -C ~/kubecolor
 sudo ln ~/kubecolor /usr/local/bin/kubecolor 2>/dev/null
 
 sudo apt-get update
