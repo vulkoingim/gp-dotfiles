@@ -6,6 +6,11 @@ BAT_RELEASE="bat-${BAT_VERSION}-x86_64-unknown-linux-musl"
 wget -qO- https://github.com/sharkdp/bat/releases/download/${BAT_VERSION}/${BAT_RELEASE}.tar.gz | tar -xzvf - ${BAT_RELEASE}/bat -C ~/bat
 sudo ln ~/${BAT_RELEASE}/bat /usr/local/bin/bat 2>/dev/null
 
+KUBECOLOR_VERSION="0.0.20"
+KUBECOLOR_RELEASE="kubecolor_${KUBECOLOR_VERSION}_Linux_x86_64.tar.gz"
+wget https://github.com/hidetatz/kubecolor/releases/download/v${KUBECOLOR_VERSION}/${KUBECOLOR_RELEASE} && tar -xvfz ${KUBECOLOR_RELEASE} kubecolor -C ~/kubecolor
+sudo ln ~/kubecolor /usr/local/bin/kubecolor 2>/dev/null
+
 sudo apt-get update
 sudo apt-get --yes install tig zplug fzf zsh-syntax-highlighting tldr
 
@@ -41,4 +46,8 @@ git config --global color.status.changed yellow
 echo 'colorscheme gruvbox' >> ~/.vimrc
 echo 'set bg=dark' >> ~/.vimrc
 echo 'source ~/.bash_aliases' >> ~/.zshrc
+echo 'autoload -Uz compinit && compinit' >> ~/.zshrc
+echo 'compdef kubecolor=kubectl' >> ~/.zshrc
+echo 'alias k="kubecolor"' >> ~/.zshrc
+
 #echo '[ -z "$ZSH_VERSION" ] && export SHELL=`which zsh` && exec "$SHELL" -l' >> ~/.bashrc
