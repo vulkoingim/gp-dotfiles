@@ -11,7 +11,7 @@ tar -xvf kubecolor_0.0.20_Linux_x86_64.tar.gz kubecolor -C ~/kubecolor
 sudo ln ~/kubecolor /usr/local/bin/kubecolor 2>/dev/null
 
 sudo apt-get update
-sudo apt-get --yes install tig zplug fzf zsh-syntax-highlighting tldr
+sudo apt-get --yes install tig zplug fzf zsh-syntax-highlighting
 
 sh -c "$(wget -O- https://github.com/deluan/zsh-in-docker/releases/download/v1.1.2/zsh-in-docker.sh)" -- \
    -t https://github.com/vulkoingim/geometry \
