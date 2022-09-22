@@ -36,6 +36,7 @@ ln -s ~/.dotfiles/z.sh ~/z.sh
 ln -s ~/.dotfiles/.vimrc ~/.vimrc
 ln -s ~/.dotfiles/.vim/bundle/Vundle.vim ~/.vim/bundle/Vundle.vim
 ln -s ~/.dotfiles/.lessfilter ~/.lessfilter
+sudo ln -s ~/.dotfiles/kpoof /usr/local/bin/kpoof
 
 vim +PluginInstall +qall
 

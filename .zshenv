@@ -10,6 +10,8 @@ FZ_SUBDIR_CMD="jj"
 DISABLE_MAGIC_FUNCTIONS=true
 ZSH_AUTOSUGGEST_STRATEGY=(history completion)
 
+export ENHANCD_COMMAND=ecd
+
 # Uncomment the following line to change how often to auto-update (in days).
 export UPDATE_ZSH_DAYS=5
 
