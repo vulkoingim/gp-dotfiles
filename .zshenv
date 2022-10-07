@@ -1,6 +1,6 @@
 ZSH_THEME="geometry/geometry"
 GEOMETRY_STATUS_SYMBOL=👾
-GEOMETRY_STATUS_SYMBOL_ERROR=💩
+GEOMETRY_STATUS_SYMBOL_ERROR=👹
 GEOMETRY_INFO=""
 GEOMETRY_RPROMPT=(geometry_exec_time geometry_git geometry_hg geometry_echo geometry_kube)
 GEOMETRY_KUBE_CONTEXT_COLOR="red"
