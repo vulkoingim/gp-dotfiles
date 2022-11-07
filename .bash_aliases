@@ -2,8 +2,10 @@ alias lsa='ls -FGlAhp'
 alias lsl='ls -l'
 alias sts="git status"
 alias gush="git push origin HEAD"
+alias gforce="gush --force"
 alias gat="git add ."
 alias gull="git pull origin HEAD --rebase"
+alias glog="git log"
 alias giff="git diff"
 alias giffs="git diff --staged"
 alias gcmt="git commit"
@@ -11,19 +13,23 @@ alias gco="git checkout"
 alias gwcnt="git whatchanged -1 --format=oneline | wc -l"
 alias gwchg="git whatchanged"
 alias grep="grep --color"
+alias gsupd="git submodule update --recursive"
 alias gtr="tig"
 alias gundo="git reset HEAD~"
 alias rslvtheirs="gco --theirs"
 alias rslvours="gco --ours"
 alias gmpull="gco main && git pull"
+alias gmasterpull="gco master && git pull"
 alias gmt='function _gmt(){ git commit -m"$1";};_gmt'
-alias k="kubectl"
+alias cat='bat -p'
+alias j="z"
+alias ikctx="./dev/preview/install-k3s-kubeconfig.sh"
 alias kc="kubectx"
 alias kn="kubens"
-alias ovim="/usr/bin/vim"
-alias j="z"
-alias cat="bat -p"
-alias ikctx="./dev/preview/install-k3s-kubeconfig.sh"
+alias cdir="pwd | pbcopy"
+alias gpop="git stash pop"
+alias gst="git stash"
+alias k="kubectl"
 
 ws-pods(){
     join -1 1 -2 3 -o 1.1,2.2,2.4,1.3,1.5 <(kubectl get pods -l headless=false -l component=workspace | sed -e "s/^ws-//" | sort -k 1b | tail -n+2) <(gpctl workspaces list | sort -k 3b | tail -n+2) | sed -e 's/^/ws-/' | column -ts ' '
@@ -199,8 +205,10 @@ alias swykey='gpg-connect-agent "scd serialno" "learn --force" /bye'
 
 function fct () { git commit -m"$1 $mcommit[$(( $RANDOM % $#mcommit+1 ))]"; }
 
+unalias gf
 function gf () { git commit -m"$1 $mcommit[$(( $RANDOM % $#mcommit+1 ))]" && gush; }
 
+unalias gp
 function gp () { gat && git commit -m"$1 $mcommit[$(( $RANDOM % $#mcommit+1 ))]" && gush; }
 
 source ~/z.sh
