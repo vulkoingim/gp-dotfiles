@@ -37,10 +37,15 @@ ws-pods(){
 
 
 # export SHELL=/usr/bin/zsh
+greset(){
+        local base=${1:-main}
+        echo $base
+        git fetch && git reset $(git merge-base "${base}" $(git rev-parse --abbrev-ref HEAD))
+}
 
-function greset () { git fetch && git reset $(git merge-base origin/main $(git rev-parse --abbrev-ref HEAD)); }
-
-function gresetmaster () { git fetch && git reset $(git merge-base origin/master $(git rev-parse --abbrev-ref HEAD)); }
+gmasterreset(){
+        git fetch && git reset $(git merge-base master $(git rev-parse --abbrev-ref HEAD))
+}
 
 mcommit=(
     "¯\\_(ツ)_/¯"
