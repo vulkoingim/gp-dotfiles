@@ -11,7 +11,7 @@ tar -xvf kubecolor_0.0.20_Linux_x86_64.tar.gz kubecolor -C ~/kubecolor
 sudo ln ~/kubecolor /usr/local/bin/kubecolor 2>/dev/null
 
 sudo apt-get update
-sudo apt-get --yes install tig zplug fzf zsh-syntax-highlighting
+sudo apt-get --yes install tig zplug fzf zsh-syntax-highlighting fd-find
 
 sh -c "$(wget -O- https://github.com/deluan/zsh-in-docker/releases/download/v1.1.2/zsh-in-docker.sh)" -- \
    -t https://github.com/vulkoingim/geometry \
@@ -37,6 +37,7 @@ ln -s ~/.dotfiles/.vimrc ~/.vimrc
 ln -s ~/.dotfiles/.vim/bundle/Vundle.vim ~/.vim/bundle/Vundle.vim
 ln -s ~/.dotfiles/.lessfilter ~/.lessfilter
 sudo ln -s ~/.dotfiles/kpoof /usr/local/bin/kpoof
+ln -s $(which fdfind) ~/.local/bin/fd
 
 vim +PluginInstall +qall
 
@@ -49,5 +50,3 @@ echo 'source ~/.bash_aliases' >> ~/.zshrc
 echo 'autoload -Uz compinit && compinit' >> ~/.zshrc
 echo 'compdef kubecolor=kubectl' >> ~/.zshrc
 echo 'alias k="kubecolor"' >> ~/.zshrc
-
-#echo '[ -z "$ZSH_VERSION" ] && export SHELL=`which zsh` && exec "$SHELL" -l' >> ~/.bashrc
