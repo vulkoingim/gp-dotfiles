@@ -30,6 +30,7 @@ alias cdir="pwd | pbcopy"
 alias gpop="git stash pop"
 alias gst="git stash"
 alias k="kubectl"
+alias gr="git pull --rebase"
 
 ws-pods(){
     join -1 1 -2 3 -o 1.1,2.2,2.4,1.3,1.5 <(kubectl get pods -l headless=false -l component=workspace | sed -e "s/^ws-//" | sort -k 1b | tail -n+2) <(gpctl workspaces list | sort -k 3b | tail -n+2) | sed -e 's/^/ws-/' | column -ts ' '
