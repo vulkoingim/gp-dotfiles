@@ -25,3 +25,4 @@ jobs:
           RELEASE_NAME=${{ github.event.release.tag_name }}
           INPUT=${VERSION_INPUT:-$RELEASE_NAME}
           echo $INPUT
+          echo LALALL
