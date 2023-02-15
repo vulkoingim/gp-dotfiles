@@ -2,14 +2,16 @@ name: Dev
 
 on:
   workflow_dispatch:
-    inputs:
-      version:
-        description: "test"
-  release:
-    types: [published]
+  issue_comment:
+#    inputs:
+#      version:
+#        description: "test"
+#  release:
+#    types: [published]
 
 jobs:
   any_name:
+    if: github.event.issue.pull_request # && contains(github.event.comment.body, 'run workflow') }}
     runs-on: ubuntu-latest
     steps:
       - name: Any Name Bash Test Step
