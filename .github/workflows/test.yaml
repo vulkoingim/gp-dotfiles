@@ -41,6 +41,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Any Name Bash Test Step
+        env:
+          PR_DESC: '${{ github.event.pull_request.body || inputs.pr_description }}'
         shell: bash
         run: |
           echo 
