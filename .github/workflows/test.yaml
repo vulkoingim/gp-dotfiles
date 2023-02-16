@@ -6,35 +6,35 @@ on:
     types: [ created ]
 
 jobs:
-#  configuration:
-#    name: Configure job parameters
-#    runs-on: [ self-hosted ]
-#    concurrency:
-#      group: ${{ github.head_ref || github.ref }}-configuration
-#      cancel-in-progress: true
-#    outputs:
-#      is_main_branch: ${{ steps.output.outputs.is_main_branch }}
-#      version: ${{ steps.output.outputs.version }}
-#      preview_enable: ${{ steps.output.outputs.preview_enable }}
-#      preview_infra_provider: ${{ steps.output.outputs.preview_infra_provider }}
-#    steps:
-##      - name: "Determine Branch"
-##        id: branches
-##        uses: transferwise/sanitize-branch-name@v1
-#      - name: "Set outputs"
-#        id: output
-#        env:
-#          PR_DESC: '${{ github.event.pull_request.body }}'
-#        shell: bash
-#        run: |
-#          {
-#            echo "is_main_branch=${{ (github.head_ref || github.ref) == 'refs/heads/main' }}"
-#            echo "version=$
-#          {{ steps.branches.outputs.sanitized-branch-name }}-gha.${{github.run_number}}"
-#            echo "with_github_actions=${{ contains(github.event.pull_request.body, '[x] /werft with-github-actions') }}"
-#            echo "preview_enable=${{ contains(github.event.pull_request.body, '[x] /werft with-preview') }}"
-#            echo "preview_infra_provider=${{ contains(github.event.pull_request.body, '[X] /werft with-gce-vm') && 'gce' || 'harvester' }}"
-#          } >> $GITHUB_OUTPUT
+  #  configuration:
+  #    name: Configure job parameters
+  #    runs-on: [ self-hosted ]
+  #    concurrency:
+  #      group: ${{ github.head_ref || github.ref }}-configuration
+  #      cancel-in-progress: true
+  #    outputs:
+  #      is_main_branch: ${{ steps.output.outputs.is_main_branch }}
+  #      version: ${{ steps.output.outputs.version }}
+  #      preview_enable: ${{ steps.output.outputs.preview_enable }}
+  #      preview_infra_provider: ${{ steps.output.outputs.preview_infra_provider }}
+  #    steps:
+  ##      - name: "Determine Branch"
+  ##        id: branches
+  ##        uses: transferwise/sanitize-branch-name@v1
+  #      - name: "Set outputs"
+  #        id: output
+  #        env:
+  #          PR_DESC: '${{ github.event.pull_request.body }}'
+  #        shell: bash
+  #        run: |
+  #          {
+  #            echo "is_main_branch=${{ (github.head_ref || github.ref) == 'refs/heads/main' }}"
+  #            echo "version=$
+  #          {{ steps.branches.outputs.sanitized-branch-name }}-gha.${{github.run_number}}"
+  #            echo "with_github_actions=${{ contains(github.event.pull_request.body, '[x] /werft with-github-actions') }}"
+  #            echo "preview_enable=${{ contains(github.event.pull_request.body, '[x] /werft with-preview') }}"
+  #            echo "preview_infra_provider=${{ contains(github.event.pull_request.body, '[X] /werft with-gce-vm') && 'gce' || 'harvester' }}"
+  #          } >> $GITHUB_OUTPUT
 
   any_name:
     if: github.event.issue.pull_request # && contains(github.event.comment.body, 'run workflow') }}
@@ -52,5 +52,9 @@ jobs:
           INPUT=${VERSION_INPUT:-$RELEASE_NAME}
           echo $INPUT
           echo LALALL
-      - name: call
-        uses: vulkoingim/gp-dotfiles/.github/workflows/dispatch.yaml@test
+  dispatch:
+    if: github.event.issue.pull_request # && contains(github.event.comment.body, 'run workflow') }}
+    uses: vulkoingim/gp-dotfiles/.github/workflows/dispatch.yaml@test
+    with:
+      pr_description: ${{ github.event.pull_request.body }}
+
