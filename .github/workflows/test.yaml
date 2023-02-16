@@ -55,7 +55,7 @@ jobs:
 
   dispatch:
 #    if: github.event.issue.pull_request # && contains(github.event.comment.body, 'run workflow') }}
-    uses: vulkoingim/gp-dotfiles/.github/workflows/dispatch.yaml@test
+    uses: ./.github/workflows/dispatch.yaml #@test
     with:
       pr_description: ${{ github.event.pull_request.body }}
 
