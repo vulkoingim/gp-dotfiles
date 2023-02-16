@@ -1,0 +1,20 @@
+name: Dispatch
+on:
+  workflow_dispatch:
+  workflow_call:
+
+jobs:
+  any_name:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Any Name Bash Test Step
+        shell: bash
+        run: |
+          echo "GH_REPO: $GH_REPO"
+          echo "GH_REPO_O: $GH_REPO_O"
+          echo "GH_T: $GH_T"
+          echo "${{ github.event.release.tag_name }}"
+          VERSION_INPUT=${{ github.event.inputs.version }}
+          RELEASE_NAME=${{ github.event.release.tag_name }}
+          INPUT=${VERSION_INPUT:-$RELEASE_NAME}
+          echo $INPUT
