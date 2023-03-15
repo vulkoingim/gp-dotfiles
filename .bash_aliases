@@ -39,24 +39,23 @@ export GPG_ID=B3E3B34236CE237A
 
 gpg --keyserver hkps://keyserver.ubuntu.com --receive-key "${GPG_ID}" || true
 
-
-if [[ -v GPG_ID && ! -z "$GPG_ID" ]]; then
-    # pedantically ensure $HOME/.gnupg is setup correctly
-    # if it's not present when an SSH session starts, the socket won't get mounted
-    mkdir -p $HOME/.gnupg
-    chown -R $(whoami) $HOME/.gnupg
-    chmod 700 $HOME/.gnupg
-    find $HOME/.gnupg -type f -exec chmod 600 {} \;
-    find $HOME/.gnupg -type d -exec chmod 700 {} \;
-    gpg --keyserver keys.openpgp.org --recv-keys ${GPG_ID}
-    gpgconf --kill gpg-agent
-    git config --global user.signingkey $GPG_ID
-    git config commit.gpgsign true
-    # ensure the gpg-agent is gone for ssh to create it since
-    # we don't have StreamLocalBindUnlink on the server / workspace
-    rm -f "$HOME/.gnupg/S.gpg-agent*"
-    echo "trusted-key $GPG_ID" >> "$HOME/.gnupg/gpg.conf"
-fi
+#if [[ -v GPG_ID && ! -z "$GPG_ID" ]]; then
+#    # pedantically ensure $HOME/.gnupg is setup correctly
+#    # if it's not present when an SSH session starts, the socket won't get mounted
+#    mkdir -p $HOME/.gnupg
+#    chown -R $(whoami) $HOME/.gnupg
+#    chmod 700 $HOME/.gnupg
+#    find $HOME/.gnupg -type f -exec chmod 600 {} \;
+#    find $HOME/.gnupg -type d -exec chmod 700 {} \;
+#    gpg --keyserver keys.openpgp.org --recv-keys ${GPG_ID}
+#    gpgconf --kill gpg-agent
+#    git config --global user.signingkey $GPG_ID
+#    git config commit.gpgsign true
+#    # ensure the gpg-agent is gone for ssh to create it since
+#    # we don't have StreamLocalBindUnlink on the server / workspace
+#    rm -f "$HOME/.gnupg/S.gpg-agent*"
+#    echo "trusted-key $GPG_ID" >> "$HOME/.gnupg/gpg.conf"
+#fi
 
 ws-pods(){
     join -1 1 -2 3 -o 1.1,2.2,2.4,1.3,1.5 <(kubectl get pods -l headless=false -l component=workspace | sed -e "s/^ws-//" | sort -k 1b | tail -n+2) <(gpctl workspaces list | sort -k 3b | tail -n+2) | sed -e 's/^/ws-/' | column -ts ' '
