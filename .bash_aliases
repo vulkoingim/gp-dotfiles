@@ -34,6 +34,7 @@ alias gr="git pull --rebase"
 alias kl="k logs"
 alias kp="k get pods"
 alias kpo="kp -o wide"
+alias s="subctl"
 
 export GPG_ID=B3E3B34236CE237A
 
