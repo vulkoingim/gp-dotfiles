@@ -10,6 +10,14 @@ wget https://github.com/hidetatz/kubecolor/releases/download/v0.0.20/kubecolor_0
 tar -xvf kubecolor_0.0.20_Linux_x86_64.tar.gz kubecolor -C ~/kubecolor
 sudo ln ~/kubecolor /usr/local/bin/kubecolor 2>/dev/null
 
+sudo rm /etc/apt/sources.list.d/hashicorp.list
+sudo rm /etc/apt/sources.list.d/tailscale.list
+
+sudo mkdir -p --mode=0755 /usr/share/keyrings
+curl -fsSL https://pkgs.tailscale.com/stable/ubuntu/jammy.noarmor.gpg | sudo tee /usr/share/keyrings/tailscale-archive-keyring.gpg >/dev/null
+# Add the tailscale repository
+curl -fsSL https://pkgs.tailscale.com/stable/ubuntu/jammy.tailscale-keyring.list | sudo tee /etc/apt/sources.list.d/tailscale.list
+
 sudo apt-get update
 sudo apt-get --yes install tig zplug fzf zsh-syntax-highlighting fd-find #exa
 
