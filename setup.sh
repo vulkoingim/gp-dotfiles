@@ -48,13 +48,18 @@ sudo ln -s ~/.dotfiles/kpoof /usr/local/bin/kpoof
 ln -s $(which fdfind) ~/.local/bin/fd
 
 vim +PluginInstall +qall
+vim +GoInstallBinaries +qall
 
 git config --global color.ui auto
 git config --global color.status.changed yellow
 git config --global core.editor vim
 
+# vimrc
 echo 'colorscheme gruvbox' >> ~/.vimrc
 echo 'set bg=dark' >> ~/.vimrc
+echo 'set autowrite' >> ~/.vimrc
+
+# zshrc
 echo 'source ~/.bash_aliases' >> ~/.zshrc
 echo 'autoload -Uz compinit && compinit' >> ~/.zshrc
 echo 'compdef kubecolor=kubectl' >> ~/.zshrc
