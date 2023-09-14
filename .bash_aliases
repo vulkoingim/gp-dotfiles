@@ -132,19 +132,13 @@ alias lsize="du -shc *"
 export HISTCONTROL=ignoreboth:erasedups
 export AWS_PAGER="bat -l json --plain"
 
-alias ll='ls -FGlAhp'                       # Preferred 'ls' implementation
+if command -v lsd &> /dev/null; then
+    alias ls="lsd"
+fi
+
+alias ll='ls -FlAh'                       # Preferred 'ls' implementation
 alias less='less -FSRXc'                    # Preferred 'less' implementation
 
-# Remove duplicate items from history
-export HISTCONTROL=ignoreboth:erasedups
-
-alias ll='ls -FGlAhp'                       # Preferred 'ls' implementation
-alias less='less -FSRXc'                    # Preferred 'less' implementation
-
-# Remove duplicate items from history
-export HISTCONTROL=ignoreboth:erasedups
-alias ll='ls -FGlAhp'                       # Preferred 'ls' implementation
-alias less='less -FSRXc'                    # Preferred 'less' implementation
 cd() { builtin cd "$@"; ll; }               # Always list directory contents upon 'cd'
 alias cd..='cd ../'                         # Go back 1 directory level (for fast typers)
 alias ..='cd ../'                           # Go back 1 directory level

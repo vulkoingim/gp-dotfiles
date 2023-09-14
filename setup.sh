@@ -10,6 +10,12 @@ wget https://github.com/hidetatz/kubecolor/releases/download/v0.0.20/kubecolor_0
 tar -xvf kubecolor_0.0.20_Linux_x86_64.tar.gz kubecolor -C ~/kubecolor
 sudo ln ~/kubecolor /usr/local/bin/kubecolor 2>/dev/null
 
+lsd_version="v1.0.0"
+wget "https://github.com/lsd-rs/lsd/releases/download/${lsd_version}/lsd-${lsd_version}-x86_64-unknown-linux-gnu.tar.gz"
+tar -xvf "lsd-${lsd_version}-x86_64-unknown-linux-gnu.tar.gz" --strip-components=1 "lsd-${lsd_version}-x86_64-unknown-linux-gnu/lsd"
+mv lsd ~/
+sudo ln ~/lsd /usr/bin/lsd 2>/dev/null
+
 sudo rm /etc/apt/sources.list.d/hashicorp.list || true
 sudo rm /etc/apt/sources.list.d/tailscale.list || true
 
