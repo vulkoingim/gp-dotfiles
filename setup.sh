@@ -50,7 +50,7 @@ ln -s ~/.dotfiles/.vimrc ~/.vimrc
 ln -s ~/.dotfiles/.vim/bundle/Vundle.vim ~/.vim/bundle/Vundle.vim
 ln -s ~/.dotfiles/.lessfilter ~/.lessfilter
 sudo ln -s ~/.dotfiles/kpoof /usr/local/bin/kpoof
-ln -s $(which fdfind) ~/.local/bin/fd
+sudo ln -s $(which fdfind) /usr/local/bin/fd
 
 vim +PluginInstall +qall
 vim +GoInstallBinaries +qall
