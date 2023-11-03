@@ -47,8 +47,6 @@ Plugin 'ryanoasis/vim-devicons'
 call vundle#end()            " required
 filetype plugin indent on    " required
 
-colorscheme gruvbox
-
 " set rtp+=/opt/homebrew/opt/fzf
 
 if has("autocmd")
