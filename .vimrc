@@ -17,7 +17,7 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'tpope/vim-fugitive'
 " plugin from http://vim-scripts.org/vim/scripts.html
 " Plugin 'L9'
-Plugin 'git://git.wincent.com/command-t.git'
+" Plugin 'git://git.wincent.com/command-t.git'
 Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
 " Install L9 and avoid a Naming conflict if you've already installed a
 " different version somewhere else.
@@ -41,13 +41,11 @@ Plugin 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plugin 'junegunn/fzf.vim'
 Plugin 'preservim/nerdtree'
 Plugin 'ryanoasis/vim-devicons'
-
+" Plugin 'wincent/command-t'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
-
-" set rtp+=/opt/homebrew/opt/fzf
 
 if has("autocmd")
   au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
@@ -97,3 +95,32 @@ nnoremap <C-F>w :Windows<CR>
 nnoremap <C-F>o :Files<CR>
 let g:fzf_vim = {}
 let g:fzf_vim.preview_window = ['right,50%', 'ctrl-/']
+
+nnoremap <C-]> :tabnext<CR>
+nnoremap <C-[> :tabprevious<CR>
+
+function! WrapNavigate(direction)
+  if a:direction == 'l' && winnr() == winnr('$')
+    " If moving right and on the last window, go to the first
+    execute 'wincmd t'
+  elseif a:direction == 'h' && winnr() == 1
+    " If moving left and on the first window, go to the last
+    execute 'wincmd b'
+  else
+    " Otherwise, move normally
+    execute 'wincmd ' . a:direction
+  endif
+endfunction
+
+
+nnoremap “ :call WrapNavigate('l')<CR> 
+nnoremap ‘ :call WrapNavigate('h')<CR>
+
+
+" let g:indentLine_char = '⦙'
+" autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
+
+" let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
+" let g:ale_sign_error = '✘'
+" let g:ale_sign_warning = '⚠'
+" let g:ale_lint_on_text_changed = 'never'
