@@ -51,13 +51,6 @@ if has("autocmd")
   au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 endif
 
-set mouse=i
-if has("mouse_sgr")
-	set ttymouse=sgr
-else
-	set ttymouse=xterm2
-end
-
 set clipboard=
 
 map <ScrollWheelDown> j
