@@ -89,8 +89,8 @@ nnoremap <C-F>o :Files<CR>
 let g:fzf_vim = {}
 let g:fzf_vim.preview_window = ['right,50%', 'ctrl-/']
 
-nnoremap <C-]> :tabnext<CR>
-nnoremap <C-[> :tabprevious<CR>
+" nnoremap <C-]> :tabnext<CR>
+" nnoremap <C-[> :tabprevious<CR>
 
 function! WrapNavigate(direction)
   if a:direction == 'l' && winnr() == winnr('$')
